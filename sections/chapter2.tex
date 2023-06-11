@@ -1,0 +1,194 @@
+\chapter{David Tong Solution Manual}
+sec:second\label{sec:second}
+
+\section{Sheet 1: Classical Field Theory}
+
+\item \textbf{A Vibrating String}
+
+A string of length $a$, mass per unit length $\sigma$ and under tension $T$ is fixed at each end. The Lagrangian governing the time evolution of the transverse displacement
+$y(x, t)$ is:
+
+\begin{equation}
+L = \int_{0}^{a} dx \Bigg[ \frac{\sigma}{2} \bigg(\frac{\partial y}{\partial t}\bigg)^2 - \frac{T}{2} \bigg(\frac{\partial y}{\partial x}\bigg)^2  \Bigg] 
+\label{eq:L_y}
+\end{equation}
+
+where x identifies position along the string from one end point. By expressing the displacement as a sine series Fourier expansion in the form:
+
+\begin{equation}
+y(x,t) = \sqrt{\frac{2}{a}}\sum_{n=1}^{\infty} \sin \bigg( \frac{n \pi x}{a}\bigg) q_n(t) 
+\label{eq:y_sine_four}
+\end{equation}
+
+show that the Lagrangian becomes
+
+\begin{equation}
+L = \sum_{n=1}^{\infty} \frac{\sigma}{2} \dot{q}^2_n - \frac{T}{2} \bigg( \frac{n \pi }{a} q_n\bigg)^2
+\label{eq:res_L}
+\end{equation}
+
+Derive the equations of motion. Hence show that the string is equivalent to an infinite
+set of decoupled harmonic oscillators with frequencies:
+
+
+\begin{equation}
+\omega_n = \sqrt{\frac{T}{\sigma}} \bigg( \frac{n \pi}{a}\bigg)
+\label{eq1:ex1_freq}
+\end{equation}
+
+
+\textbf{Solution}
+
+Replacing expression \ref{eq:y_sine_four} in \ref{eq:L_y} we readily obtain:
+
+\begin{equation}
+L = \sum_{n, m}^{\infty, \infty}
+\Bigg[ \frac{\sigma}{a} \dot{q}_n \dot{q}_m \int_{0}^{a} dx \sin \bigg( \frac{n \pi x}{a}\bigg) \sin \bigg( \frac{m \pi x}{a}\bigg)  - \frac{T\pi^2}{a^3} \int_{0}^{a} dx \,nm \, \cos \bigg( \frac{n \pi x}{a}\bigg) \cos \bigg( \frac{m \pi x}{a}\bigg)  \Bigg] 
+\label{eq:step1}
+\end{equation}
+
+Integrating:
+
+\begin{equation}
+L = \sum_{n, m}^{\infty, \infty}
+\Bigg[ \frac{\sigma}{a} \dot{q}_n \dot{q}_m \frac{a}{2}\delta_{mn}  - \frac{T\pi^2}{a^3}\frac{a}{2}nm\delta_{mn} \Bigg] = \sum_{n=1}^{\infty} \frac{\sigma}{2} \dot{q}^2_n - \frac{T}{2} \bigg( \frac{n \pi }{a} q_n\bigg)^2
+\label{eq:step2}
+\end{equation}
+
+From the above equation it is seen that the generalized coordinates are given by $q_n$. It is important to note that by integrating in the last step we do not longer need to study the Lagrange equations for the Lagrange density in the integrand \ref{eq:L_y} if we want to solve for $y$. That since we can simply apply the Lagrange equations for \ref{eq:step2} and replace the resultant $q_n$ in \ref{eq:y_sine_four}. So, we have:
+
+\begin{equation}
+0 = \frac{d}{dt} \bigg( \frac{\partial L}{\partial \dot{q}_m} \bigg) - \frac{\partial L}{\partial q_m} = \sigma \ddot{q}_m - T \bigg( \frac{n\pi}{a}\bigg)^2 q_m 
+\end{equation}
+
+Or more simply:
+
+
+\begin{equation}
+\ddot{q}_m = - \frac{T}{\sigma} \bigg( \frac{m\pi}{a}\bigg)^2 q_m = - w^2_m q_m
+\end{equation}
+
+as a result it is clear that each $q_m$ is an oscillator with the frequency $w_n$ given by \ref{eq1:ex1_freq}. The fact that they are decouple is evident from the fact the the solution of one of them does not affect the other. The last was evident even without finding the equations of motion since $L$ can be written as $L_{w_1}(q_1) + L_{w_2}(q_2) + ... + L_{w_n}(q_n) + ...$, where $L_{w_n}(q_n)$ corresponds to the Lagrangian of the oscillator with frequency $w_n$.
+
+
+\item \textbf{Klein-Gordon Invariance}
+
+Show that the Klein-Gordon equations is covariant under Lorentz transformations. In other words: show that if $\phi(x)$ satisfies the Klein-Gordon equation, then $\phi(\Lambda^{-1}x)$ also satisfies this equation for any Lorentz transformation given by $\Lambda$.
+
+\textbf{Solution}
+
+In an operational sense we want to probe that in a new reference frame $x' = \Lambda x$, then:
+
+\begin{equation}
+\eta_{\nu \mu} \partial'^{\nu} \partial'^{\mu} \phi'(x') - m^2 \phi'(x') = 0
+\label{eq1:ex2_kg_step1}
+\end{equation}
+
+where $\phi'(x')$ is the field as observed by the prime observer. Furthermore, it can be seen that $\phi'(x')$ = $\phi(\Lambda^{-1}x')$ since the primed observed will see the same behaviour of the field $\phi(x')$ at the point $\Lambda^{-1}x'$. As an example, consider $x' = x + a$, clearly  $\phi'(x') = \phi(x' - a)$.
+
+By supposition:
+
+\begin{equation}
+\eta_{\nu \mu} \partial^{\nu} \partial^{\mu} \phi(x) - m^2 \phi(x) = 0
+\label{eq1:ex2_kg_step2}
+\end{equation}
+
+Applying $x' = \Lambda x$:
+
+
+\begin{equation}
+\eta_{\nu \mu} \partial^{\nu} \partial^{\mu} \phi(\Lambda^{-1} x') - m^2 \phi(\Lambda^{-1} x') = 0
+\label{eq1:ex2_kg_step3}
+\end{equation}
+
+rewriting the derivatives to operate over the prime system we have:
+
+\begin{equation}
+\eta_{\nu \mu} {\Lambda^{-1 \, \nu}}_{\alpha} \partial'^{\alpha} {\Lambda^{-1 \, \mu}}_{\sigma} \partial'^{\sigma} \phi(\Lambda^{-1} x') - m^2 \phi(\Lambda^{-1} x') = 0
+\label{eq1:ex2_kg_step4}
+\end{equation}
+
+using the symmetry of $\eta_{\mu \nu}$, that is,  $\eta = \Lambda^{T} \eta \Lambda$, where T is the transpose:
+
+
+\begin{equation}
+{\Lambda^{\kappa}}_{\nu} \eta_{\kappa \beta} {\Lambda^{\beta}}_{\mu} {\Lambda^{-1 \, \nu}}_{\alpha} {\Lambda^{-1 \, \mu}}_{\sigma} \partial'^{\alpha} \partial'^{\sigma} \phi(\Lambda^{-1} x') - m^2 \phi(\Lambda^{-1} x') = 0
+\label{eq1:ex2_kg_step5}
+\end{equation}
+
+identifying the Kronecker's delta functions:
+
+
+\begin{equation}
+\delta^{\kappa}_{\alpha} \delta^{\beta}_{\sigma} \eta_{\kappa \beta} \partial'^{\alpha} \partial'^{\sigma} \phi(\Lambda^{-1} x') - m^2 \phi(\Lambda^{-1} x') = 0
+\label{eq1:ex2_kg_step6}
+\end{equation}
+
+identifying $\phi'(x')$ and applying the sum we finally obtain \ref{eq1:ex2_kg_step1} as desired. It is to be noted that the identification of $\phi'(x')$ is done for the purpose of clarity and to make more explicit that the equation had the same form. However, this identification is somewhat irrelevant since $x$ is a always a function of the new coordinates $x'$ and $\phi(x)$ is always the same object. This is why when proving invariant form of an scalar equation we can disregard this fact.
+
+
+\item \textbf{Invariance under a phase}
+
+The motion of a complex field $\psi(x)$ is governed by the Lagrangian:
+
+\begin{equation}
+\mathcal{L} = \partial_{\mu}\psi^{*}\partial^{\mu}\psi - m^2\psi^{*}\psi - \frac{\lambda}{2}(\psi^{*}\psi)^2
+\label{eq1:ex3_step1}
+\end{equation}
+
+Write down the Euler-Lagrange field equations for this system. Verify that the Lagrangian is invariant under the infinitesimal transformation:
+
+\begin{align}
+&\delta\psi = i \alpha \psi & \delta\psi^{*}= -i \alpha \psi^{*}
+\label{eq1:ex3_step2}
+\end{align}
+
+Derive the Noether's current associated with this transformation and verify explicitly
+that it is conserved using the field equations satisfied by $\psi$.
+
+\textbf{Solution}
+
+We can see that in general any multiplication of two linear function $f_1(\psi)f_2(\psi^{*})$ which are linear in $\psi$ and $\psi^{*}$ respectively are invariant under the transformation $\ref{eq1:ex3_step2}$:
+
+\begin{equation}
+\begin{aligned} \label{eq1:ex3_step3}
+f_1(\psi +i \alpha \psi)f_2(\psi^{*} -i \alpha \psi^{*}) &= [f_1(\psi) + i \alpha f_1(\psi)][f_2(\psi^{*}) -i \alpha f_2(\psi^{*})] \\ 
+&= f_1(\psi)f_2(\psi^{*}) + O(\alpha^2) = f_1(\psi)f_2(\psi^{*}) 
+\end{aligned}
+\end{equation}
+
+It is readily seen that if a term $f_1(\psi)f_2(\psi^{*})$ is invariant, so it is $[f_1(\psi)f_2(\psi^{*})]^n$ for $n \ge 0$.\\
+
+As each individual term in the Lagrangian density satisfy having the form $[(f_1(\psi)f_2(\psi^{*})]^n$ it is seen that $\mathcal{L}$ is invariant under the proposed transformation. As $\delta\mathcal{L} = 0$ it is clear the current is given by:
+
+
+\begin{equation}
+\begin{aligned}
+\partial_{\mu} \Bigg(\frac{\partial\mathcal{L}}{\partial (\partial_{\mu} \psi_a)} \psi_a \Bigg) = \partial_{\mu}\Bigg(\frac{\partial\mathcal{L}}{\partial (\partial_{\mu} \psi)} \psi \Bigg) + \partial_{\mu}\Bigg(\frac{\partial\mathcal{L}}{\partial (\partial_{\mu} \psi^{*})} \psi^{*} \Bigg) 
+\label{eq1:ex3_step4}
+\end{aligned}
+\end{equation}
+
+From where we see that the current is:
+
+\begin{equation}
+\begin{aligned}
+j_{\mu} = \frac{\partial\mathcal{L}}{\partial (\partial_{\mu} \psi)} \psi + \frac{\partial\mathcal{L}}{\partial (\partial_{\mu} \psi ^{*})} \psi^{*} 
+\label{eq1:ex3_step4}
+\end{aligned}
+\end{equation}
+
+On the other hand, the field equation satisfy by $\psi$ is:
+
+
+% \kant[7-11] % Dummy text
+
+% \begin{theorem}[{\cite[95]{AM69}}]
+%     \label{thm:dedekind}
+%     Let \( A \) be a Noetherian domain of dimension one. Then the following are equivalent:
+%     \begin{enumerate}
+%         \item \( A \) is integrally closed;
+%         \item Every primary ideal in \( A \) is a prime power;
+%         \item Every local ring \( A_\mathfrak{p} \) \( (\mathfrak{p} \neq 0) \) is a discrete valuation ring.
+%     \end{enumerate}
+% \end{theorem}
